@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import Navigation from './components/Navigation/Navigation';
 import Signin from './components/Signin/Signin';
+import Register from './components/Register/Register';
 import Logo from './components/Logo/Logo';
 import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import Rank from './components/Rank/Rank';
@@ -72,7 +73,7 @@ class App extends React.Component {
   }
 
   onRouteChange = (route) => {
-    this.setState({route: route});
+    this.setState({ route: route });
   }
 
   render() {
@@ -81,10 +82,9 @@ class App extends React.Component {
         <Particles
           params={particlesOptions}
           className='particles' />
-        <Navigation onRouteChange={this.onRouteChange}/>
-        {this.state.route === 'signin'
-          ? <Signin onRouteChange={this.onRouteChange}/>
-          : <Fragment>
+        <Navigation onRouteChange={this.onRouteChange} />
+        {this.state.route === 'home'
+          ? <Fragment>
             <Logo />
             <Rank />
             <ImageLinkForm
@@ -93,6 +93,11 @@ class App extends React.Component {
             />
             <FaceRecognition box={this.state.box} imageUrl={this.state.imageUrl} />
           </Fragment>
+          : (
+            this.state.route === 'signin'
+            ? <Signin onRouteChange={this.onRouteChange} />
+            : <Register onRouteChange={this.onRouteChange} />
+          )
         }
       </div>
     );
