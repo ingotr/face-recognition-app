@@ -11,6 +11,9 @@ import Clarifai from 'clarifai';
 import './App.css';
 import 'tachyons';
 
+import * as Constants from './const';
+const {PARTICLES_NUMBER,PARTICLES_DENSITY_AREA, } = Constants;
+
 const app = new Clarifai.App({
   apiKey: '1af38e65d20b44dbb4b6abf0cf4eed1c'
 });
@@ -18,10 +21,10 @@ const app = new Clarifai.App({
 const particlesOptions = {
   particles: {
     number: {
-      value: 100,
+      value: PARTICLES_NUMBER,
       density: {
         enable: true,
-        value_area: 800
+        value_area: PARTICLES_DENSITY_AREA
       }
     }
   }
