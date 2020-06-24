@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import Navigation from './components/Navigation/Navigation';
+import withForm from './hocs/withForm';
 import Signin from './components/Signin/Signin';
 import Register from './components/Register/Register';
 import Logo from './components/Logo/Logo';
@@ -11,6 +12,9 @@ import FaceRecognition from './components/FaceRecognition/FaceRecognition';
 import calculateFaceLocation from './api';
 import './App.css';
 import 'tachyons';
+
+const SigninWrapped = withForm(Signin);
+const RegisterWrapped = withForm(Register);
 
 const initialState = {
   input: '',
@@ -117,11 +121,13 @@ class App extends React.Component {
           </Fragment>
           : (
             route === 'signin'
-              ? <Signin
+              ? <SigninWrapped
+                isRegister={false}
                 loadUser={this.loadUser}
                 onRouteChange={this.onRouteChange}
               />
-              : <Register
+              : <RegisterWrapped
+                isRegister={true}
                 loadUser={this.loadUser}
                 onRouteChange={this.onRouteChange}
               />
