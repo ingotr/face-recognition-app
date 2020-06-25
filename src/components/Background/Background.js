@@ -1,6 +1,6 @@
-import * as Constants from '../../utils/const';
 import React from 'react';
 import Particles from 'react-particles-js';
+import * as Constants from '../../utils/const';
 
 const { PARTICLES_NUMBER, PARTICLES_DENSITY_AREA, } = Constants;
 

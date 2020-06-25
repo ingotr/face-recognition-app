@@ -1,4 +1,5 @@
 import React, { PureComponent, Fragment } from "react";
+import PropTypes from 'prop-types';
 
 class Signin extends PureComponent {
   render() {
@@ -10,6 +11,10 @@ class Signin extends PureComponent {
       </Fragment>
     );
   }
+}
+
+Signin.propTypes = {
+  children: PropTypes.array,
 }
 
 export default Signin;

@@ -1,6 +1,7 @@
 import React, { PureComponent } from "react";
+import PropTypes from 'prop-types';
 
-const withForm = (Component) => {
+const withForm = () => {
   class WithForm extends PureComponent {
     constructor(props) {
       super(props);
@@ -118,6 +119,12 @@ const withForm = (Component) => {
         </article>
       );
     }
+  }
+
+  WithForm.propTypes = {
+    isRegister: PropTypes.bool,
+    loadUser: PropTypes.func,
+    onRouteChange: PropTypes.func,
   }
 
   return WithForm;
