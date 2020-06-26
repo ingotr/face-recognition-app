@@ -31,7 +31,7 @@ const withForm = () => {
       const routeRegister = 'register';
       const routeSignin = 'signin';
       event.preventDefault();
-      fetch(`http://localhost:3000/${isRegister ? routeRegister : routeSignin}`,
+      fetch(`https://sleepy-garden-13124.herokuapp.com/${isRegister ? routeRegister : routeSignin}`,
         {
           method: 'post',
           headers: { 'Content-Type': 'application/json' },
